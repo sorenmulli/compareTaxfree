@@ -61,7 +61,7 @@ def findDiscount(product):
             break
 
     #Cutter stringen for den unødvendige tekst
-    productPrice = productPriceText[startIdx+1:endIdx]
+    productPrice = productPriceText[startIdx+2:endIdx]
 
     return productPrice, discountPrice
 
@@ -121,17 +121,38 @@ def parseHtml(browser):
     return normalProducts, discountProducts
 
 
-def jsonify(normalProducts, discountProducts):
+def jsonify(normalProducts, discountProducts, boozeType):
 
-    normalDict = {}
-    for product in normalProducts
-    #with open('data.txt', 'w') as f:
-     #   json.dump(normalProducts, f, ensure_ascii=False)
+    productsList = []
+
+    for product in normalProducts:
+        productInfoDict = {}
+        productInfoDict["title"]=product[0]
+        productInfoDict["price"]=product[1]
+        productsList.append(productInfoDict)
+
+    for product in discountProducts:
+        productInfoDict = {}
+        productInfoDict["title"]=product[0]
+        productInfoDict["price"]=product[1]
+        productInfoDict["discountAmount"]=product[2]
+        productInfoDict["discountPrice"]=product[3]
+
+        productsList.append(productInfoDict)
 
 
-    pass
 
-def getPrices(pageLink):
+
+    mainDict = {
+        boozeType: productsList
+    }
+
+    with open('data.txt', 'w') as f:
+        json.dump(mainDict, f, ensure_ascii=False)
+
+    return None
+
+def getPrices(pageLink, boozeType):
 
     #Browseren sættes op og åbnes
     browser = getHtml(pageLink)
@@ -140,9 +161,9 @@ def getPrices(pageLink):
     normalProducts, discountProducts = parseHtml(browser)
 
     #Produkternes information skrives til JSON
-    jsonify(normalProducts, discountProducts)
+    jsonify(normalProducts, discountProducts, boozeType)
     pass
 
 
-getPrices('https://www.bordershop.com/dk/ol-cider/dansk-ol')
+getPrices('https://www.bordershop.com/dk/ol-cider/dansk-ol', "beer")
 
