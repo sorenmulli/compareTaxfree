@@ -7,7 +7,7 @@
   </head>
   <body>
 
-    <div class = "centerscrn">
+<div class = "centerscrn">
 
   <h2>Her kan du vælge de forskellige produkter</h2>
   <div id = "selection">
@@ -19,11 +19,11 @@
   </div> <!-- ID = selection -->
 
 
+</div> <!-- centerscrn -->
 
-
-
-</div>
+  <!-- importing button functions -->
   <script type="text/javascript" src="buttons.js"></script>
+  <!-- Functions for the making of lists -->
   <script>
 
   //Defining different catagories to choose from
@@ -32,12 +32,15 @@
   // Function to setup the divisions
 
   function makeDiv() {
+    //making the output array
     let output = '';
     let name;
     for (var i = 0; i < catagories.length; i++){
+      //name ends up named as: "beerlist", "winelist", etc
       name = catagories[i] + "list";
       output += "<ul class = 'product' id = '" + name + "'></ul>"
     };
+    //Placing it in the <div id = "selection" inner HTML
     document.getElementById("selection").innerHTML = output;
   };
 
@@ -51,7 +54,10 @@
     //Making a loop, where every type of booze
     //Gets assigned to a <li>
     for (var i = 0; i < type.length; i++){
-      output += '<li>' + type[i].title +
+      output += '<li ' +
+      //Making a unique id for each item
+      'id = "' + name + i + '">'
+      + type[i].title +
       '<br>' + type[i].price +
       '</li>';
     }
@@ -66,11 +72,11 @@
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       var data = JSON.parse(xhttp.responseText);
-
+      //Running makeList function
       makeList(data.beer, 'beer');
     };
   };
-
+  //Running the request to get the JSON-file
   xhttp.open("GET", "danishbeer.json", true);
   xhttp.send();
 
