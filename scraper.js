@@ -54,3 +54,16 @@ scrape().then((value) => {
 const puppeteer = require('puppeteer');
 // Used to write a file
 const fs        = require('fs');
+//Defining url
+const urls = 'https://www.bordershop.com/dk/ol-cider/dansk-ol';
+
+let scrape = async() => {
+  //Opening the browser and a new page
+  const browser = await puppeteer.launch({headless: false});
+  const page    = await browser.newPage();
+
+  //Entering the website
+  await page.goto(urls);
+};
+
+scrape();
