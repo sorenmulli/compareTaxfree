@@ -148,7 +148,7 @@ def jsonify(normalProducts, discountProducts, boozeType):
     }
 
     with open('data.txt', 'w') as f:
-        json.dump(mainDict, f, ensure_ascii=False)
+        json.dump(mainDict, f, ensure_ascii=False, indent=4, sort_keys=True)
 
     return None
 
