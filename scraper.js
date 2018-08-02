@@ -49,3 +49,8 @@ scrape().then((value) => {
 
 });
 */
+
+// Used to enter a page and download the content
+const puppeteer = require('puppeteer');
+// Used to write a file
+const fs        = require('fs');
