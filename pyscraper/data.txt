@@ -1,0 +1,1 @@
+[["Royal Økologisk Pilsner 4,8%", "59"], ["Carlsberg Elephant 7,2%", "99"], ["Tuborg Green 4,6%", "99"], ["Tuborg Rå Ufiltreret Økologisk Pilsner 4,5%", "79"], ["Carlsberg 1883 4,6%", "79"], ["Carlsberg Brewmasters American Pale Ale 4,6%", "109"], ["Carlsberg 5,0%", "99"], ["Carlsberg Brewmasters India Pale Ale 5,2%", "109"]]
