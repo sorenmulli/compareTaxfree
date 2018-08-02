@@ -10,14 +10,38 @@
     <div class = "centerscrn">
 
   <h2>Her kan du vælge de forskellige produkter</h2>
-  <ul id = "beerlist">  </ul>
+  <div id = "selection">
+
+
+
+
+
+  </div> <!-- ID = selection -->
 
 
 
 
 
 </div>
+  <script type="text/javascript" src="buttons.js"></script>
   <script>
+
+  //Defining different catagories to choose from
+  var catagories = ['beer', 'wine', 'spirits']
+
+  // Function to setup the divisions
+
+  function makeDiv() {
+    let output = '';
+    let name;
+    for (var i = 0; i < catagories.length; i++){
+      name = catagories[i] + "list";
+      output += "<ul class = 'product' id = '" + name + "'></ul>"
+    };
+    document.getElementById("selection").innerHTML = output;
+  };
+
+  makeDiv();
 
   // Function to make lists to insert in <ul>
   function makeList(type, name) {
@@ -27,7 +51,9 @@
     //Making a loop, where every type of booze
     //Gets assigned to a <li>
     for (var i = 0; i < type.length; i++){
-      output += '<li>' + type[i].title + '</li>';
+      output += '<li>' + type[i].title +
+      '<br>' + type[i].price +
+      '</li>';
     }
     //Assigning the output from the loop to the list with
     //belonging type
@@ -41,13 +67,12 @@
     if (this.readyState == 4 && this.status == 200) {
       var data = JSON.parse(xhttp.responseText);
 
-      console.log(data);
+      makeList(data.beer, 'beer');
     };
   };
 
   xhttp.open("GET", "danishbeer.json", true);
   xhttp.send();
-
 
   </script>
 
