@@ -1,7 +1,0 @@
-function plusButt() {
-
-};
-
-function minusButt() {
-
-};
