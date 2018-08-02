@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="da" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Compare TaxFree</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+
+    <div class = "centerscrn">
+
+  <h2>Her kan du vælge de forskellige produkter</h2>
+  <ul id = "beerlist">  </ul>
+
+
+
+
+
+</div>
+  <script>
+
+  // Function to make lists to insert in <ul>
+  function makeList(type, name) {
+
+    //Making the list for the output
+    var output = '';
+    //Making a loop, where every type of booze
+    //Gets assigned to a <li>
+    for (var i = 0; i < type.length; i++){
+      output += '<li>' + type[i].title + '</li>';
+    }
+    //Assigning the output from the loop to the list with
+    //belonging type
+    document.getElementById(name + 'list').innerHTML = output;
+    console.log(output);
+  };
+
+  // Function to load boozeData and thereafter insert in <ul>
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var data = JSON.parse(xhttp.responseText);
+
+      console.log(data);
+    };
+  };
+
+  xhttp.open("GET", "danishbeer.json", true);
+  xhttp.send();
+
+
+  </script>
+
+
+
+  </body>
+</html>
