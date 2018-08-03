@@ -4,24 +4,32 @@ import json
 
 
 
-def getHtml(pageLink):
-
-
-    #Åbner browseren vha. selenium
+def getHtml(pageLinks):
+    # Åbner browseren vha. selenium
     browser = webdriver.Chrome()
 
-    #Går ind på siden
-    browser.get(pageLink)
+    #liste med html'er
+    soupList = []
 
-    #Igangsætter læsning af siden
-    return browser
+    # Går ind på alle siderne
+    for url in pageLinks:
+        browser.get(url)
+         #Åbner siden i bs4, der læser html'en
+        soup = BeautifulSoup(browser.page_source, 'lxml')
+        soupList.append(soup)
+
+    #Lukker browservinduet
+    browser.close()
+
+    return soupList
 
 
 def removeHtmlTagsFromString(string):
 
+    if string == None:
+        return None
     #Gør den til string
     string = str(string)
-
     # Finder åbnende Html-tags slutning og gemmer dens index
     for x in range(len(string)):
         if string[x] == ">":
@@ -33,9 +41,9 @@ def removeHtmlTagsFromString(string):
         if string[x] =="<":
             endIdx = x
             break
-
     #Cutter strengen det rigtige sted
     cleanedString = string[startIdx + 1:endIdx]
+    #Kontrollerer, at den har indhold
 
     return cleanedString
 
@@ -65,14 +73,7 @@ def findDiscount(product):
 
     return productPrice, discountPrice
 
-def parseHtml(browser):
-
-    #Åbner siden i bs4, der læser html'en
-    soup = BeautifulSoup(browser.page_source, 'lxml')
-
-    #Lukker browservinduet
-    browser.close()
-
+def parseHtml(soup):
     #Skærer alt andet end produktruderne væk ved at søge på deres klasse
     productList = soup.find_all("product-tile", class_="ng-scope ng-isolate-scope")
 
@@ -84,53 +85,44 @@ def parseHtml(browser):
 
     #Loop, der skal undersøge hver produktrude og udtrække pris, navn og detaljer om discount
     for product in productList:
-
         #Udtrækker navnet og fjerner Html-kode
         prodNameTag = product.find("h2", class_="product-tile__title ng-binding")
         prodName = removeHtmlTagsFromString(prodNameTag)
-
         #Undersøger, om der er kode, der afslører, at det er et produkt på tilbud
         discountAmountTag = product.find("span", class_="__deal ng-binding ng-scope")
-
-
+        #Hvis ikke, der er nogen tal i tilbudsmængden, skal den sættes til None, da tilbuddet så ikke er et mængdetilbud
+        if not any(char.isdigit() for char in str(discountAmountTag)): discountAmountTag = None
         if discountAmountTag == None:
 
             #Hvis det ikke er på tilbud findes standardprisen nemt og udtrækkes og rengøres for html
             prodPriceTag = product.find("span", class_= "__price ng-binding")
             prodPrice = removeHtmlTagsFromString(prodPriceTag)
-
             #Navn og pris tilføjes listen
             normalProducts.append([prodName,prodPrice])
+
+
 
         else:
             #Gælder produkter, der ER på tilbud
             #Tryller alt andet end tal væk fra tagget med mængden af tilbd
-            discountAmount = ''.join(filter(lambda x: x.isdigit(), removeHtmlTagsFromString(discountAmountTag)))
+            discountAmount = ''.join(filter(lambda x: x.isdigit(),removeHtmlTagsFromString(discountAmountTag)))
 
             #Produktets pris og den samlede pris for mængdetilbuddet findes og udtrækkes
             prodPrice, discountPrice  = findDiscount(product)
 
             #navn, standardpris, tilbudsmængde og mængdepris tilføjes listen
             discountProducts.append([prodName, prodPrice, discountAmount, discountPrice])
-
-
-
-    print(normalProducts)
-    print(discountProducts)
-
     return normalProducts, discountProducts
 
 
-def jsonify(normalProducts, discountProducts, boozeType):
+def jsonify(normalProducts, discountProducts):
 
     productsList = []
-
     for product in normalProducts:
         productInfoDict = {}
         productInfoDict["title"]=product[0]
         productInfoDict["price"]=product[1]
         productsList.append(productInfoDict)
-
     for product in discountProducts:
         productInfoDict = {}
         productInfoDict["title"]=product[0]
@@ -140,30 +132,28 @@ def jsonify(normalProducts, discountProducts, boozeType):
 
         productsList.append(productInfoDict)
 
+    return productsList
 
+def getPrices(boozeList, linkList):
+    #Hoved-JSON-dicten, der skal fyldes med data
+    mainDict = {}
 
+    # Browseren åbnes og fra browseren trækkes html'en og derefter priserne ud
+    souplist = getHtml(linkList)
 
-    mainDict = {
-        boozeType: productsList
-    }
+    for idx in range(len(boozeList)):
+        normalProducts, discountProducts = parseHtml(souplist[idx])
+        #Produkternes information skrives til JSON
+        print(normalProducts, discountProducts)
+        productsList = jsonify(normalProducts, discountProducts)
+        mainDict[boozeList[idx]] = productsList
 
     with open('data.txt', 'w') as f:
         json.dump(mainDict, f, ensure_ascii=False, indent=4, sort_keys=True)
 
-    return None
-
-def getPrices(pageLink, boozeType):
-
-    #Browseren sættes op og åbnes
-    browser = getHtml(pageLink)
-
-    #Fra browseren trækkes html'en og derefter priserne ud
-    normalProducts, discountProducts = parseHtml(browser)
-
-    #Produkternes information skrives til JSON
-    jsonify(normalProducts, discountProducts, boozeType)
     pass
 
-
-getPrices('https://www.bordershop.com/dk/ol-cider/dansk-ol', "beer")
+boozeList = ["beer", "gin", "wine", "whiskey"]
+linkList = ["https://www.bordershop.com/dk/ol-cider/dansk-ol", "https://www.bordershop.com/dk/spiritus/gin","https://www.bordershop.com/dk/vin/rodvin","https://www.bordershop.com/dk/spiritus/whisky"]
+getPrices(boozeList, linkList)
 
