@@ -18,13 +18,16 @@ body = {
 ],
 "options":
 {
-	"manyToOne": True,
+	"manyToOne": 'true',
 	"unit": "k"
 }
 }
 
 
 r = requests.post(api_str, data=json.dumps(body))
+answer = r.json()
+
+
 
 with open("ex.json", 'w+') as outfile:
 	json.dump(r.json(), outfile)
