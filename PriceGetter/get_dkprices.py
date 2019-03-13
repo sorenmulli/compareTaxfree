@@ -33,7 +33,7 @@ for cat, cat_id in categories.items():
 			clean_prod = {}
 			
 			clean_prod["name"] = prod["name"]
-			clean_prod["price"] = prod["localMinPrice"]["value"]
+			clean_prod["price"] = [[1,prod["localMinPrice"]["value"]] ]
 			clean_prod["category"] = cat_translate[cat_id]
 						
 			clean_prods.append(clean_prod)
