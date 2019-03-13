@@ -1,49 +1,16 @@
 <!DOCTYPE html>
-<html lang="da" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Compare TaxFree</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-  </head>
-  <body>
 
-<div class = "centerscrn">
+<head>
+  <script type="text/javascript" language="javascript" src="website/jquery-3.3.1.js"></script>
+  <script type="text/javascript" src="jsonloader.js"></script>
+</head>
 
-  <h2>Her kan du vælge de forskellige produkter</h2>
-  <div id = "selection">
+<body>
+
+  <div class="product_list">
 
 
 
+  </div>
 
-
-  </div> <!-- ID = selection -->
-
-
-</div> <!-- centerscrn -->
-
-  <!-- list-related functions -->
-  <script type="text/javascript" src="listFunctions.js"></script>
-  <!-- making the lists, and functionallity of plus and minus -->
-  <script>
-  //Making the divisions, the lists are spread over.
-  makeDiv();
-  
-
-  // Function to load boozeData and thereafter insert in <ul>
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      var data = JSON.parse(xhttp.responseText);
-      //Running makeList function
-      makeList(data.beer, 'beer');
-    };
-  };
-  //Running the request to get the JSON-file
-  xhttp.open("GET", "danishbeer.json", true);
-  xhttp.send();
-  </script>
-
-
-
-  </body>
-</html>
+</body>

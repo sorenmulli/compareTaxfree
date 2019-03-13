@@ -39,13 +39,10 @@ for(let i = 0; i < itterations; i++){
 
 		idItems.push({items: items})
 		urlData.push({idItems})
-
-		var jsonString = JSON.stringify(urlData);
+			console.log("Downloaded " + counter + " items");
+	})
+}
+var jsonString = JSON.stringify(urlData);
 		fs.writeFile('AllPricesBordersShop.json', jsonString, 'utf8', function(err) {
 			if(err) console.log(err);
 		})
-			console.log("Downloaded " + counter + " items");
-
-
-	})
-}
