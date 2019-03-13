@@ -26,7 +26,7 @@ for cat in categories:
 		
 		clean_prod["name"] = prod["name"]
 		clean_prod["price"] = [[price["quantity"], price["totalTagPriceIncVATAmount"]] for price in prod["salesPrices"]]
-		
+		clean_prod["category"] = cat
 					
 		clean_prods.append(clean_prod)
 	all_products += clean_prods
