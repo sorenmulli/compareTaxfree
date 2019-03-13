@@ -1,24 +1,35 @@
 <!DOCTYPE html>
 
 <head>
-  <script type="text/javascript" language="javascript" src="jquery-3.3.1.js"></script>
-  <script type="text/javascript" src="Table.js"></script>
+	<script type="text/javascript" language="javascript" src="jquery-3.3.1.js"></script>
+	<script type="text/javascript" src="Table.js"></script>
 
 </head>
 
 <body>
 
-<h1>Read Data from JSON</h1>
+	<h1>Compare Tax Free</h1>
+	<div id = "calculate_price">
+		<h2>See your price</h2>
+		<button onclick = "CalculateTotal()">Calculate Total</button>
 
-<input type="text" id = "search_input" onkeyup="SearchTable()" placeholder="Search for products..">
+	</div>
+	<div id = "list_of_products">
+		<h2>Products</h2>
 
-<table id = "price_table">
-	<tr>
-		<td>Name</td>
-		<td>BorderPrice</td>
-		<td>DanishPrice</td>
-	</tr>
-</table>
-<!--- Building table with products --->
+		<input type="text" id = "search_input" onkeyup="SearchTable()" placeholder="Search for products..">
+
+		<table id = "price_table">
+			<tr id = "price_info">
+				<td>Name</td>
+				<td>BorderPrice</td>
+				<td>DanishPrice</td>
+				<td>Cart</td>
+			</tr>
+		</table>
+
+	</div>
+
+
 
 </body>
