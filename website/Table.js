@@ -1,6 +1,6 @@
 function SearchTable(){
 
-	var input, filter, table, tr, td, i, txtValue;
+	var input, filter, table, tr, td, th, i, txtValue;
 	input = document.getElementById("search_input");
 	filter = input.value.toUpperCase().replace(" ", "");
 	table = document.getElementById("price_table");
@@ -17,83 +17,73 @@ function SearchTable(){
 			}
 		}
 	}
-}
-
-function AddItem(id){
-	var val = parseInt(document.getElementById(id).value);
-
-	if(val < 1 || val == null){
-		document.getElementById(id).value = 0;
-	} else {
-		document.getElementById(id).value = val + 1;
-	}
-}
-
-function CalculateTotal(){
-	var table = document.getElementById('price_table');
-	var counter = 0
-	var val;
-
-	var danishTotal = 0;
-	var borderTotal = 0;
-
-	$.ajax({
-		url: "ComparedPrices.json",
-		dataType: "json",
-		success: function(data){
-			$(data).each(function(index, value) {
-				$(value['catagory'][1].items).each(function(indexx, value) {
-					val = document.getElementById(counter++);
-					if(!isNaN(val) ) {
-						danishTotal += parseInt(val) * value;
-
-
-					}
-				});
-			});
-		}
-	});
-
-	console.log(danishTotal)
 
 }
 
-//On load of website
+
 $(document).ready(function() {
 	$.ajax({
 		url: "ComparedPrices.json",
 		dataType: "json",
 		success: function(data){
-			$(data).each(function(index, items) {
-				//value['catagory'][1]
-				$(items['catagory'][1].items).each(function(indexx, value) {
-					var item =
-					"<tr><td>"
-					+value.name
-					+"</td><td>"
-					+value.borderPrice
-					+"</td><td>"
-					+value.danishPrice
-					+"</td><td>"
-					+"<button type=\"button\" id = \"_"
-					+ index
-					+"\" onclick=\" AddItem("
-					+ index
-					+ ")\"> Plus </button>"
-					+  "<input type=\"number\" id =\""
-					+ index
-					+"\" placeholder = \"0\">"
-					+"<button type=\"button\" id = \"_"
-					+ index
-					+"\"> Minus </button>"
-					+"<Button id = \"crt"
-					+ index
-					+ "\" > Add To Cart </Button>"
-					+"</td></tr>"
-					$("#price_table").append(item)
-				});
-			});
+			$(data).each(function(index, items) {
+				buildHeader( items['catagory'][0] );
+				$(items['catagory'][1].items).each(function(indexx, item) {
+					var itemString = "<tr>";
+					console.log()
+					itemString += buildName( item );
+					itemString += buildBorderPrice( item );
+					itemString += buildDanishPrice( item );
+					itemString += buildCart( indexx );
+					itemString += "</tr>";
 
+					$("#price_table").append(itemString);
+				})
+			});
 		}
 	});
 });
+
+function buildName( item ){
+	return buildTD().replace("!", item.name);
+}
+
+function buildBorderPrice( item ){
+	return buildTD().replace("!", item.borderPrice);
+}
+
+function buildDanishPrice( item ){
+	return buildTD().replace("!", item.danishPrice);
+}
+
+function buildCart( indexx ){
+	var buttonString = "";
+	buttonString += buildPlusButt( indexx );
+	buttonString += buildPriceField( indexx );
+	buttonString += buildMinusButt( indexx );
+	return buildTD().replace("!",buttonString);
+}
+
+function buildPlusButt(indexx){
+	return "<button id = \"+" + indexx + "\"> + </button>";
+}
+
+function buildPriceField(indexx){
+	return "<input id = \"item" + indexx + "\" placeholder = \"currently empty\">";
+}
+
+function buildMinusButt(indexx){
+	return "<button id = \"-" + indexx + "\" >	 - </button>";
+}
+
+function buildTD(){
+	return "<td>!</td>";
+}
+
+function buildHeader(name){
+	var header =
+	"<th>"+
+	name.id+
+	"</th>"
+	$("#price_table").append(header)
+}
