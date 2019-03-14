@@ -3,8 +3,14 @@ body {
   font-weight: 100;
 }
 
-.cart{
+/*.cart{
   position: fixed;
   right: 50px;
   top: 30px;
+}*/
+
+.omPic {
+  object-fit: cover;
+  width: 250px;
+  height: 250px;
 }

@@ -17,9 +17,7 @@ function SearchTable(){
 			}
 		}
 	}
-
 }
-
 
 $(document).ready(function() {
 	$.ajax({
@@ -34,9 +32,8 @@ $(document).ready(function() {
 					itemString += buildName( item );
 					itemString += buildBorderPrice( item );
 					itemString += buildDanishPrice( item );
-					itemString += buildCart( indexx );
+					itemString += buildCart( index );
 					itemString += "</tr>";
-
 					$("#price_table").append(itemString);
 				})
 			});
