@@ -8,32 +8,37 @@ dname = os.path.dirname(abspath)
 os.chdir(dname)
 
 
-scrape_url = "https://www.pricerunner.dk/public/v1/cl/1424/dk/desktop?page={}&attr_56525176=58381604&retailer=63022&urlName=%C3%98l%20og%20spiritus&sort=1"
+scrape_url = "https://www.pricerunner.dk/public/v1/cl/{0}/dk/desktop?page={1}&retailer=63022&urlName={2}&sort=1"
 
 all_products = list()
-	
-for i in range(1, 10000):
-	r = requests.get(scrape_url.format(i)).json()
-	
-	prods = r["viewData"]["category"]["products"]
-	if prods is None:
-		break
-	clean_prods = list()
-	
-	for prod in prods:
-		clean_prod = {}
+categories = {
+	"vin": 465,
+	"OEl-og-spiritus": 1424,
+}
+cat_translate = {
+	465: 'vin',
+	1424: 'ol-spiritus-vand-cider'
+}
+
+for cat, cat_id in categories.items():
+	for i in range(1, 10000):
+		r = requests.get(scrape_url.format(cat_id, i, cat)).json()
 		
-		clean_prod["name"] = prod["name"]
-		clean_prod["price"] = prod["localMinPrice"]["value"]
+		prods = r["viewData"]["category"]["products"]
+		if prods is None:
+			break
+		clean_prods = list()
 		
-#			try:
-#				clean_prod["shipping"] = prod["shippingCost"]["amount"]	
-#			except TypeError:
-#				clean_prod["shipping"] = None	
-					
-		clean_prods.append(clean_prod)
-	all_products += clean_prods
-		
-	print(len(all_products))
-with open("pricerunner_prices.json", 'w+') as outfile:
+		for prod in prods:
+			clean_prod = {}
+			
+			clean_prod["name"] = prod["name"]
+			clean_prod["price"] = [[1,prod["localMinPrice"]["value"]] ]
+			clean_prod["category"] = cat_translate[cat_id]
+						
+			clean_prods.append(clean_prod)
+		all_products += clean_prods
+			
+		print(len(all_products))
+with open("raw_pricerunner_prices.json", 'w+') as outfile:
 	json.dump(all_products, outfile)
