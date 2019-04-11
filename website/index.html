@@ -6,12 +6,12 @@
 
 
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet"
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet"
 	type="text/css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/startbootstrap-freelancer/5.0.0/css/freelancer.min.css"
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/startbootstrap-freelancer/5.0.0/css/freelancer.min.css"
 	type="text/css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
 	<script type="text/javascript" language="javascript" src="jquery-3.3.1.js"></script>
 	<script type="text/javascript" src="Table.js"></script>
 	<link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto" rel="stylesheet">
@@ -31,34 +31,49 @@
 	</div>
 
 	<h1>Compare tax free</h1>
+
+	<div id = "place_of_travel">
+		<h2>StartPosition</h2>
+		<input id = "post_code" type="number" placeholder="Postnummer">
+		<button type="button" onclick = "findDist()"></button>
+		<h3 id = "dist_info"></h3>
+		<table id = "dist_table">
+			
+		</table>
+	</div>
+
 	<div id = "calculate_price">
 		<h2>See your price</h2>
 		<button onclick = "CalculateTotal()">Calculate Price</button>
-		<h2 id = "calculatedPrice"></h2>
-	</div>
+		<div id = "calculated_price">
+			<h3 id = "danish_price">Dansk Pris: 0</h2>
+				<h3 id = "border_price">Border Pris: 0</h2>
+				</div>
+			</div>
 
-	<div class="cart">
-		<h2>Number of products</h2>
-	</div>
+			<div class="cart">
+				<h2>Number of products</h2>
+				<h3 id = "number_of_products">0</h3>
+			</div>
 
-	<div id = "list_of_products">
-		<h2>Products</h2>
+			<div id = "list_of_products">
+				<h2>Products</h2>
 
-		<input type="text" id = "search_input" onkeyup="SearchTable()" placeholder = "Search for product">
+				<input type="text" id = "search_input" onkeyup="SearchTable()" placeholder = "Search for product">
 
-		<table id = "price_table">
-				<thead id = "price_info" >
-				<tr >
-					<td>Name</td>
-					<td>BorderPrice</td>
-					<td>DanishPrice</td>
-					<td>Cart</td>
-				</tr>
-			</thead>
-		</table>
+				<table id = "price_table">
+					<thead id = "price_info" >
+						<tr >
+							<td>Name</td>
+							<td>BorderPrice</td>
+							<td>DanishPrice</td>
+							<td>Cart</td>
+						</tr>
+					</thead>
+				</table>
 
-	</div>
+			</div>
 
 
 
-</body>
+		</body>
