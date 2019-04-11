@@ -1,5 +1,4 @@
 function SearchTable(){
-
 	var input, filter, table, tr, td, th, i, txtValue;
 	input = document.getElementById("search_input");
 	filter = input.value.toUpperCase().replace(" ", "");
@@ -66,7 +65,7 @@ function buildPlusButt(indexx){
 }
 
 function buildPriceField(indexx){
-	return "<input id = \"item" + indexx + "\" placeholder = \"currently empty\">";
+	return "<input class = \"inputItem\" id = \"item" + indexx + "\" value = \"0\">";
 }
 
 function buildMinusButt(indexx){
@@ -83,4 +82,12 @@ function buildHeader(name){
 	name.id+
 	"</th>"
 	$("#price_table").append(header)
+}
+
+function CalculateTotal(){
+	if(document.getElementById("calculatedPrice").innerHTML === ""){
+		document.getElementById("calculatedPrice").innerHTML = "Kan ikke finde pris";
+	} else {
+		document.getElementById("calculatedPrice").innerHTML = "";
+	}
 }
