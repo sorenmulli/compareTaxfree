@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/mainpage.css') }}">
+  </head>
+  <body>
+    <div class="content">
+        <h1>Compare tax free</h1>
+        <div class="products">
+          {% for key, value in product_id.items() %}
+          <tr>
+            <th> key </th>
+            <th> value </th>
+          </tr>
+
+          {% endfor %}
+        </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/mainpage.css') }}">
+
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<body>
+  <div class="page">
+    <div class="sidepanel">
+      <div class="topSidePanel">
+
+        <h3><a href="#">Home</a></h3>
+        <h3>Categories</h3>
+        {%for id in product_ids%}
+          {{id}}
+        {%endfor%}
+
+      </div>
+      <div class="bottomSidePanel">
+        <h3>
+          Settings
+        </h3>
+      </div>
+    </div>
+    <div class="content">
+
+    </div>
+  </div>
+
+</body>
+</html>
