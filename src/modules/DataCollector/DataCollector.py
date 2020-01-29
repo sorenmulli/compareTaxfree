@@ -42,42 +42,42 @@ class Collector:
 
 	def dk_requests(self):
 		'''
-		Performs scrape of pricerunner.dk
+		Performs scrape of danish prices
 		'''
 
-		scrape_url = "https://www.pricerunner.dk/public/v1/cl/{0}/dk/desktop?page={1}&retailer=63022&urlName={2}&sort=1"
+		scrape_url = "https://butik.mad.coop.dk/api/search/search?categories={0}&lastFacet=categories&pageSize=10000"
 
 		all_products = list()
 
 		categories = {
-			"vin": 465,
-			"OEl-og-spiritus": 1424,
-		}
-		cat_translate = {
-			465: 'vin',
-			1424: 'ol-spiritus-vand-cider'
+			"ol": 426,
+			"ol": 431,
+			"cider": 432,
+			"spiritus": 433,
+			"vin": 307,
+	#		"vand": 406
 		}
 
 		# Search is performed one category at a time 
 		for cat, cat_id in categories.items():
-			for i in range(1, 10000):
-				r = requests.get(scrape_url.format(cat_id, i, cat)).json()
+			r = requests.get(scrape_url.format(cat_id)).json()
+			
+			prods = r["products"]
+			if prods is None:
+				break
+			clean_prods = list()
+			
+			# Products are gathered and casted 
+			for prod in prods:
+				clean_prod = {}
 				
-				prods = r["viewData"]["category"]["products"]
-				if prods is None:
-					break
-				clean_prods = list()
+				clean_prod["name"] = prod["spotText"]
+				clean_prod["price"] = {1: float(prod["salesPrice"]["amount"])}
 				
-				# Products are gathered and casted 
-				for prod in prods:
-					clean_prod = {}
-					
-					clean_prod["name"] = prod["name"]
-					clean_prod["price"] = {1: float(prod["localMinPrice"]["value"])}
-					clean_prod["category"] = cat_translate[cat_id]
-								
-					clean_prods.append(clean_prod)
-				all_products += clean_prods
+				clean_prod["category"] = cat
+							
+				clean_prods.append(clean_prod)
+			all_products += clean_prods
 					
 		print(f"[info]: Number of scraped dk prices: {len(all_products)}")
 		return all_products
@@ -92,7 +92,7 @@ class Collector:
 
 		categories = {
 			40373: 'ol',
-			40385: 'vand',
+#			40385: 'vand',
 			40514: 'cider',
 			40406: 'vin',
 			40391: 'spiritus'
@@ -285,3 +285,48 @@ if __name__ == "__main__":
 	
 	with open("../raw_db.json", 'w+') as outfile:
 		json.dump(db, outfile)
+
+
+
+
+# 	def dk_requests(self):
+# '''
+# Performs scrape of pricerunner.dk
+# '''
+
+# scrape_url = "https://www.pricerunner.dk/public/v1/cl/{0}/dk/desktop?page={1}&retailer=63022&urlName={2}&sort=1"
+
+# all_products = list()
+
+# categories = {
+# 	"vin": 465,
+# 	"OEl-og-spiritus": 1424,
+# }
+# cat_translate = {
+# 	465: 'vin',
+# 	1424: 'ol-spiritus-vand-cider'
+# }
+
+# # Search is performed one category at a time 
+# for cat, cat_id in categories.items():
+# 	for i in range(1, 10000):
+# 		r = requests.get(scrape_url.format(cat_id, i, cat)).json()
+		
+# 		prods = r["viewData"]["category"]["products"]
+# 		if prods is None:
+# 			break
+# 		clean_prods = list()
+		
+# 		# Products are gathered and casted 
+# 		for prod in prods:
+# 			clean_prod = {}
+			
+# 			clean_prod["name"] = prod["name"]
+# 			clean_prod["price"] = {1: float(prod["localMinPrice"]["value"])}
+# 			clean_prod["category"] = cat_translate[cat_id]
+						
+# 			clean_prods.append(clean_prod)
+# 		all_products += clean_prods
+			
+# print(f"[info]: Number of scraped dk prices: {len(all_products)}")
+# return all_products
