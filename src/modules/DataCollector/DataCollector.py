@@ -73,7 +73,7 @@ class Collector:
 					clean_prod = {}
 					
 					clean_prod["name"] = prod["name"]
-					clean_prod["price"] = [[1, prod["localMinPrice"]["value"]] ]
+					clean_prod["price"] = {1: float(prod["localMinPrice"]["value"])}
 					clean_prod["category"] = cat_translate[cat_id]
 								
 					clean_prods.append(clean_prod)
@@ -108,7 +108,7 @@ class Collector:
 			for prod in prods:
 				clean_prod = {}
 				clean_prod["original_name"] = prod["name"]
-				clean_prod["price"] = [[price["quantity"], price["totalTagPriceIncVATAmount"]] for price in prod["salesPrices"]]
+				clean_prod["price"] = {int(price["quantity"]): price["totalTagPriceIncVATAmount"] for price in prod["salesPrices"]}
 				clean_prod["category"] = cat_name
 				clean_prod["name"], clean_prod["unit_info"], clean_prod["pant"] = self._fleg_unit_analyzer(prod)
 				clean_prods.append(clean_prod)
@@ -131,7 +131,7 @@ class Collector:
 		#9814: ['spiritus', 'whisky', 'skotland'],
 		all_products = list()
 		for cat, cat_name in categories.items():
-			print(cat, cat_name)
+	#		print(cat, cat_name)
 			r = requests.get(scrape_url.format(cat)).json()
 			
 			prods = r["products"]
@@ -146,6 +146,10 @@ class Collector:
 
 
 				clean_prod["price"], clean_prod["discount_text"] = self._border_discount_analyzer(prod)
+				
+				if not clean_prod["price"]:
+					continue
+				
 				clean_prod["unit_info"] = self._border_unit_analyzer(prod)
 
 				clean_prods.append(clean_prod)
@@ -244,7 +248,7 @@ class Collector:
 
 	def _border_discount_analyzer(self, prod: dict):
 
-		price_list = list()
+		price_dict = dict()
 		#print(prod["price"]["amount"])
 		std_price =	 floatify_dk_num(prod["price"]["amount"])
 
@@ -260,19 +264,19 @@ class Collector:
 				price_end = single_info.find(" DKK")
 				single_price = floatify_dk_num(single_info[price_start+2:price_end])
 
-				price_list.append([1, single_price])
+				price_dict[1] =  single_price
 
 				amount_start = disc_txt.rfind("Køb ")
 				amount_end = disc_txt.find(" for")
 				amount = disc_txt[amount_start+4:amount_end]
 
-				price_list.append([int(amount), std_price])
+				price_dict[int(amount)] = std_price
 
 		else:
 			disc_txt = ""
-			price_list.append([1, std_price])
+			price_dict[1]= std_price
 		
-		return price_list, disc_txt
+		return price_dict, disc_txt
 
 if __name__ == "__main__":
 	os.chdir(sys.path[0])

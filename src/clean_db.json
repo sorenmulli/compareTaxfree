@@ -1,0 +1,1296 @@
+{
+    "vin": [
+        {
+            "fleg_price": {
+                "1": 29.99,
+                "6": 139.99
+            },
+            "fleg_unit_info": {
+                "u_amount": 1,
+                "u_size": 75,
+                "u_measure": "cl"
+            },
+            "category_detail": null,
+            "border_price": null,
+            "border_unit_info": null,
+            "name": "Diamond Hill Chardonnay 13 % 25 cl",
+            "dk_price": {
+                "1": 25
+            }
+        },
+        {
+            "fleg_price": {
+                "1": 29.99,
+                "6": 139.99
+            },
+            "fleg_unit_info": {
+                "u_amount": 1,
+                "u_size": 75,
+                "u_measure": "cl"
+            },
+            "category_detail": null,
+            "border_price": null,
+            "border_unit_info": null,
+            "name": "Diamond Hill Chardonnay 13 % 75 cl",
+            "dk_price": {
+                "1": 24.99
+            }
+        },
+        {
+            "fleg_price": null,
+            "fleg_unit_info": null,
+            "category_detail": [
+                "vin",
+                "champagne-mousserende"
+            ],
+            "border_price": {
+                "1": 119.95
+            },
+            "border_unit_info": {
+                "u_name": "flaske",
+                "u_amount": 1,
+                "u_size": 75,
+                "u_measure": "cl"
+            },
+            "name": "Moet & Chandon Brut NV Imperial Magnum Champagne 12% 150cl 12 % 150 cl",
+            "dk_price": {
+                "1": 673.95
+            }
+        },
+        {
+            "fleg_price": {
+                "1": 49.99,
+                "6": 199.99
+            },
+            "fleg_unit_info": {
+                "u_amount": 1,
+                "u_size": 75,
+                "u_measure": "cl"
+            },
+            "category_detail": [
+                "vin",
+                "rodvin",
+                "usa"
+            ],
+            "border_price": {
+                "1": 39.95,
+                "6": 179.95
+            },
+            "border_unit_info": {
+                "u_name": "flaske",
+                "u_amount": 1,
+                "u_size": 75,
+                "u_measure": "cl"
+            },
+            "name": "Silverboom Special Reserve Chardonnay 14 % 75 cl",
+            "dk_price": {
+                "1": 45
+            }
+        },
+        {
+            "fleg_price": null,
+            "fleg_unit_info": null,
+            "category_detail": [
+                "vin",
+                "champagne-mousserende"
+            ],
+            "border_price": {
+                "1": 34.95,
+                "6": 179.95
+            },
+            "border_unit_info": {
+                "u_name": "flaske",
+                "u_amount": 1,
+                "u_size": 75,
+                "u_measure": "cl"
+            },
+            "name": "Verdi Spumante Sparkletini 5 % 75 cl",
+            "dk_price": {
+                "1": 35
+            }
+        },
+        {
+            "fleg_price": null,
+            "fleg_unit_info": null,
+            "category_detail": [
+                "vin",
+                "champagne-mousserende"
+            ],
+            "border_price": {
+                "1": 34.95,
+                "6": 179.95
+            },
+            "border_unit_info": {
+                "u_name": "flaske",
+                "u_amount": 1,
+                "u_size": 75,
+                "u_measure": "cl"
+            },
+            "name": "Verdi Spumante Sparkletini Hyldeblomst 5 % 75 cl",
+            "dk_price": {
+                "1": 34.99
+            }
+        },
+        {
+            "fleg_price": null,
+            "fleg_unit_info": null,
+            "category_detail": [
+                "vin",
+                "champagne-mousserende"
+            ],
+            "border_price": {
+                "1": 34.95,
+                "6": 179.95
+            },
+            "border_unit_info": {
+                "u_name": "flaske",
+                "u_amount": 1,
+                "u_size": 75,
+                "u_measure": "cl"
+            },
+            "name": "Verdi Spumante Sparkletini Peach 5 % 75 cl",
+            "dk_price": {
+                "1": 34.99
+            }
+        },
+        {
+            "fleg_price": null,
+            "fleg_unit_info": null,
+            "category_detail": [
+                "vin",
+                "champagne-mousserende"
+            ],
+            "border_price": {
+                "1": 34.95,
+                "6": 179.95
+            },
+            "border_unit_info": {
+                "u_name": "flaske",
+                "u_amount": 1,
+                "u_size": 75,
+                "u_measure": "cl"
+            },
+            "name": "Verdi Spumante Sparkletini Raspberry 5 % 75 cl",
+            "dk_price": {
+                "1": 34.99
+            }
+        },
+        {
+            "fleg_price": null,
+            "fleg_unit_info": null,
+            "category_detail": [
+                "vin",
+                "champagne-mousserende"
+            ],
+            "border_price": {
+                "1": 34.95,
+                "6": 179.95
+            },
+            "border_unit_info": {
+                "u_name": "flaske",
+                "u_amount": 1,
+                "u_size": 75,
+                "u_measure": "cl"
+            },
+            "name": "Verdi Spumante Sparkletini Rosa 5 % 75 cl",
+            "dk_price": {
+                "1": 35
+            }
+        },
+        {
+            "fleg_price": null,
+            "fleg_unit_info": null,
+            "category_detail": [
+                "vin",
+                "champagne-mousserende"
+            ],
+            "border_price": {
+                "1": 34.95,
+                "6": 179.95
+            },
+            "border_unit_info": {
+                "u_name": "flaske",
+                "u_amount": 1,
+                "u_size": 75,
+                "u_measure": "cl"
+            },
+            "name": "Verdi Spumante Sparkletini Strawberry 5 % 75 cl",
+            "dk_price": {
+                "1": 35
+            }
+        }
+    ],
+    "spiritus": [
+        {
+            "fleg_price": {
+                "1": 99.99
+            },
+            "fleg_unit_info": {
+                "u_amount": 1,
+                "u_size": 70,
+                "u_measure": "cl"
+            },
+            "category_detail": [
+                "spiritus",
+                "akvavit-snaps"
+            ],
+            "border_price": {
+                "1": 109.95
+            },
+            "border_unit_info": {
+                "u_name": "flaske",
+                "u_amount": 1,
+                "u_size": 70,
+                "u_measure": "cl"
+            },
+            "name": "Aalborg Dild Akvavit 38% 70 cl",
+            "dk_price": {
+                "1": 119.99
+            }
+        },
+        {
+            "fleg_price": {
+                "1": 89.99
+            },
+            "fleg_unit_info": {
+                "u_amount": 1,
+                "u_size": 70,
+                "u_measure": "cl"
+            },
+            "category_detail": [
+                "spiritus",
+                "akvavit-snaps"
+            ],
+            "border_price": {
+                "1": 99.95
+            },
+            "border_unit_info": {
+                "u_name": "flaske",
+                "u_amount": 1,
+                "u_size": 70,
+                "u_measure": "cl"
+            },
+            "name": "Aalborg Export Akvavit 38% 70 cl",
+            "dk_price": {
+                "1": 72.95
+            }
+        },
+        {
+            "fleg_price": {
+                "1": 149.99
+            },
+            "fleg_unit_info": {
+                "u_amount": 1,
+                "u_size": 100,
+                "u_measure": "cl"
+            },
+            "category_detail": null,
+            "border_price": null,
+            "border_unit_info": null,
+            "name": "Aalborg Jubilæums Akvavit 40% 70 cl",
+            "dk_price": {
+                "1": 137.95
+            }
+        },
+        {
+            "fleg_price": {
+                "1": 129.99
+            },
+            "fleg_unit_info": {
+                "u_amount": 1,
+                "u_size": 70,
+                "u_measure": "cl"
+            },
+            "category_detail": null,
+            "border_price": null,
+            "border_unit_info": null,
+            "name": "Aalborg Nordguld Akvavit 40% 70 cl",
+            "dk_price": {
+                "1": 144.99
+            }
+        },
+        {
+            "fleg_price": {
+                "1": 99.99
+            },
+            "fleg_unit_info": {
+                "u_amount": 1,
+                "u_size": 70,
+                "u_measure": "cl"
+            },
+            "category_detail": [
+                "spiritus",
+                "akvavit-snaps"
+            ],
+            "border_price": {
+                "1": 99.95
+            },
+            "border_unit_info": {
+                "u_name": "flaske",
+                "u_amount": 1,
+                "u_size": 70,
+                "u_measure": "cl"
+            },
+            "name": "Aalborg Porse Snaps 40% 70 cl",
+            "dk_price": {
+                "1": 99.99
+            }
+        },
+        {
+            "fleg_price": null,
+            "fleg_unit_info": null,
+            "category_detail": [
+                "spiritus",
+                "akvavit-snaps"
+            ],
+            "border_price": {
+                "1": 14.95
+            },
+            "border_unit_info": {
+                "u_name": "flaske",
+                "u_amount": 1,
+                "u_size": 5,
+                "u_measure": "cl"
+            },
+            "name": "Aalborg Taffel Akvavit 45% 35 cl",
+            "dk_price": {
+                "1": 59.95
+            }
+        },
+        {
+            "fleg_price": null,
+            "fleg_unit_info": null,
+            "category_detail": [
+                "spiritus",
+                "akvavit-snaps"
+            ],
+            "border_price": {
+                "1": 139.95
+            },
+            "border_unit_info": {
+                "u_name": "flaske",
+                "u_amount": 1,
+                "u_size": 100,
+                "u_measure": "cl"
+            },
+            "name": "Aalborg Taffel Akvavit 45% 70 cl",
+            "dk_price": {
+                "1": 110
+            }
+        },
+        {
+            "fleg_price": null,
+            "fleg_unit_info": null,
+            "category_detail": [
+                "spiritus",
+                "vodka"
+            ],
+            "border_price": {
+                "1": 219.95
+            },
+            "border_unit_info": {
+                "u_name": "flaske",
+                "u_amount": 1,
+                "u_size": 175,
+                "u_measure": "cl"
+            },
+            "name": "Absolut Vodka (Magnum) 40% 150 cl",
+            "dk_price": {
+                "1": 299
+            }
+        },
+        {
+            "fleg_price": null,
+            "fleg_unit_info": null,
+            "category_detail": [
+                "spiritus",
+                "vodka"
+            ],
+            "border_price": {
+                "1": 69.95
+            },
+            "border_unit_info": {
+                "u_name": "flaske",
+                "u_amount": 1,
+                "u_size": 50,
+                "u_measure": "cl"
+            },
+            "name": "Absolut Vodka 0.7L (40% Vol.)",
+            "dk_price": {
+                "1": 96.39
+            }
+        },
+        {
+            "fleg_price": {
+                "1": 119.99
+            },
+            "fleg_unit_info": {
+                "u_amount": 1,
+                "u_size": 100,
+                "u_measure": "cl"
+            },
+            "category_detail": [
+                "spiritus",
+                "vodka"
+            ],
+            "border_price": {
+                "1": 539.95
+            },
+            "border_unit_info": {
+                "u_name": "flaske",
+                "u_amount": 1,
+                "u_size": 450,
+                "u_measure": "cl"
+            },
+            "name": "Absolut Vodka Citron 40% 70 cl",
+            "dk_price": {
+                "1": 144
+            }
+        },
+        {
+            "fleg_price": null,
+            "fleg_unit_info": null,
+            "category_detail": [
+                "spiritus",
+                "vodka"
+            ],
+            "border_price": {
+                "1": 539.95
+            },
+            "border_unit_info": {
+                "u_name": "flaske",
+                "u_amount": 1,
+                "u_size": 450,
+                "u_measure": "cl"
+            },
+            "name": "Absolut Vodka Elyx 42.3% 70 cl",
+            "dk_price": {
+                "1": 455
+            }
+        },
+        {
+            "fleg_price": null,
+            "fleg_unit_info": null,
+            "category_detail": [
+                "spiritus",
+                "vodka"
+            ],
+            "border_price": {
+                "1": 539.95
+            },
+            "border_unit_info": {
+                "u_name": "flaske",
+                "u_amount": 1,
+                "u_size": 450,
+                "u_measure": "cl"
+            },
+            "name": "Absolut Vodka Lime 40% 70 cl",
+            "dk_price": {
+                "1": 144
+            }
+        },
+        {
+            "fleg_price": null,
+            "fleg_unit_info": null,
+            "category_detail": [
+                "spiritus",
+                "vodka"
+            ],
+            "border_price": {
+                "1": 539.95
+            },
+            "border_unit_info": {
+                "u_name": "flaske",
+                "u_amount": 1,
+                "u_size": 450,
+                "u_measure": "cl"
+            },
+            "name": "Absolut Vodka Vanilia 40% 70 cl",
+            "dk_price": {
+                "1": 144
+            }
+        },
+        {
+            "fleg_price": {
+                "1": 139.99
+            },
+            "fleg_unit_info": {
+                "u_amount": 1,
+                "u_size": 70,
+                "u_measure": "cl"
+            },
+            "category_detail": [
+                "spiritus",
+                "bitter"
+            ],
+            "border_price": {
+                "1": 159.95
+            },
+            "border_unit_info": {
+                "u_name": "flaske",
+                "u_amount": 1,
+                "u_size": 70,
+                "u_measure": "cl"
+            },
+            "name": "Arnbitter 50% 70 cl",
+            "dk_price": {
+                "1": 154.95
+            }
+        },
+        {
+            "fleg_price": {
+                "1": 229.99
+            },
+            "fleg_unit_info": {
+                "u_amount": 1,
+                "u_size": 70,
+                "u_measure": "cl"
+            },
+            "category_detail": null,
+            "border_price": null,
+            "border_unit_info": null,
+            "name": "Aviation American Gin 42% 70 cl",
+            "dk_price": {
+                "1": 279
+            }
+        },
+        {
+            "fleg_price": {
+                "1": 279.99
+            },
+            "fleg_unit_info": {
+                "u_amount": 1,
+                "u_size": 100,
+                "u_measure": "cl"
+            },
+            "category_detail": null,
+            "border_price": null,
+            "border_unit_info": null,
+            "name": "Belvedere Vodka 40% 175 cl",
+            "dk_price": {
+                "1": 799
+            }
+        },
+        {
+            "fleg_price": null,
+            "fleg_unit_info": null,
+            "category_detail": [
+                "spiritus",
+                "gin"
+            ],
+            "border_price": {
+                "1": 209.95
+            },
+            "border_unit_info": {
+                "u_name": "flaske",
+                "u_amount": 1,
+                "u_size": 100,
+                "u_measure": "cl"
+            },
+            "name": "Black Friars Destillery Plymouth Gin 41.2% 70 cl",
+            "dk_price": {
+                "1": 228
+            }
+        },
+        {
+            "fleg_price": null,
+            "fleg_unit_info": null,
+            "category_detail": [
+                "spiritus",
+                "likor"
+            ],
+            "border_price": {
+                "1": 189.95
+            },
+            "border_unit_info": {
+                "u_name": "flaske",
+                "u_amount": 1,
+                "u_size": 70,
+                "u_measure": "cl"
+            },
+            "name": "Bols Genever Amsterdam 42% 70 cl",
+            "dk_price": {
+                "1": 299
+            }
+        },
+        {
+            "fleg_price": {
+                "1": 349.99
+            },
+            "fleg_unit_info": {
+                "u_amount": 1,
+                "u_size": 70,
+                "u_measure": "cl"
+            },
+            "category_detail": [
+                "spiritus",
+                "gin"
+            ],
+            "border_price": {
+                "1": 379.95
+            },
+            "border_unit_info": {
+                "u_name": "flaske",
+                "u_amount": 1,
+                "u_size": 70,
+                "u_measure": "cl"
+            },
+            "name": "Brooklyn Gin 40% 70 cl",
+            "dk_price": {
+                "1": 358.4
+            }
+        },
+        {
+            "fleg_price": null,
+            "fleg_unit_info": null,
+            "category_detail": [
+                "spiritus",
+                "bitter"
+            ],
+            "border_price": {
+                "1": 14.95
+            },
+            "border_unit_info": {
+                "u_name": "flaske",
+                "u_amount": 1,
+                "u_size": 4,
+                "u_measure": "cl"
+            },
+            "name": "Campari Bitter 25% 70 cl",
+            "dk_price": {
+                "1": 149
+            }
+        },
+        {
+            "fleg_price": null,
+            "fleg_unit_info": null,
+            "category_detail": [
+                "spiritus",
+                "vodka"
+            ],
+            "border_price": {
+                "1": 209.95
+            },
+            "border_unit_info": {
+                "u_name": "flaske",
+                "u_amount": 1,
+                "u_size": 70,
+                "u_measure": "cl"
+            },
+            "name": "Ciroc Cîroc Vodka \"Snap Frost\" 3.0L (40% Vol.)",
+            "dk_price": {
+                "1": 843.59
+            }
+        },
+        {
+            "fleg_price": {
+                "1": 199.99
+            },
+            "fleg_unit_info": {
+                "u_amount": 1,
+                "u_size": 70,
+                "u_measure": "cl"
+            },
+            "category_detail": null,
+            "border_price": null,
+            "border_unit_info": null,
+            "name": "Ciroc Vodka 40% 70 cl",
+            "dk_price": {
+                "1": 288
+            }
+        },
+        {
+            "fleg_price": null,
+            "fleg_unit_info": null,
+            "category_detail": [
+                "spiritus",
+                "vodka"
+            ],
+            "border_price": {
+                "1": 359.95
+            },
+            "border_unit_info": {
+                "u_name": "flaske",
+                "u_amount": 1,
+                "u_size": 70,
+                "u_measure": "cl"
+            },
+            "name": "Crystal Head Vodka 40% 70 cl",
+            "dk_price": {
+                "1": 369.95
+            }
+        },
+        {
+            "fleg_price": null,
+            "fleg_unit_info": null,
+            "category_detail": [
+                "spiritus",
+                "vodka"
+            ],
+            "border_price": {
+                "1": 74.95
+            },
+            "border_unit_info": {
+                "u_name": "flaske",
+                "u_amount": 1,
+                "u_size": 70,
+                "u_measure": "cl"
+            },
+            "name": "Cuba Dry Lemon Vodka 30% 70 cl",
+            "dk_price": {
+                "1": 99.95
+            }
+        },
+        {
+            "fleg_price": null,
+            "fleg_unit_info": null,
+            "category_detail": [
+                "spiritus",
+                "vodka"
+            ],
+            "border_price": {
+                "1": 74.95
+            },
+            "border_unit_info": {
+                "u_name": "flaske",
+                "u_amount": 1,
+                "u_size": 70,
+                "u_measure": "cl"
+            },
+            "name": "Cuba Mango Vodka 30% 70 cl",
+            "dk_price": {
+                "1": 99.95
+            }
+        },
+        {
+            "fleg_price": null,
+            "fleg_unit_info": null,
+            "category_detail": [
+                "spiritus",
+                "vodka"
+            ],
+            "border_price": {
+                "1": 74.95
+            },
+            "border_unit_info": {
+                "u_name": "flaske",
+                "u_amount": 1,
+                "u_size": 70,
+                "u_measure": "cl"
+            },
+            "name": "Cuba Pure Vodka 37.5% 70 cl",
+            "dk_price": {
+                "1": 84.99
+            }
+        },
+        {
+            "fleg_price": null,
+            "fleg_unit_info": null,
+            "category_detail": [
+                "spiritus",
+                "vodka"
+            ],
+            "border_price": {
+                "1": 74.95
+            },
+            "border_unit_info": {
+                "u_name": "flaske",
+                "u_amount": 1,
+                "u_size": 70,
+                "u_measure": "cl"
+            },
+            "name": "Cuba Raspberry Vodka 30% 70 cl",
+            "dk_price": {
+                "1": 99.95
+            }
+        },
+        {
+            "fleg_price": null,
+            "fleg_unit_info": null,
+            "category_detail": [
+                "spiritus",
+                "vodka"
+            ],
+            "border_price": {
+                "1": 74.95
+            },
+            "border_unit_info": {
+                "u_name": "flaske",
+                "u_amount": 1,
+                "u_size": 70,
+                "u_measure": "cl"
+            },
+            "name": "Cuba Watermelon Vodka 30% 70 cl",
+            "dk_price": {
+                "1": 99.95
+            }
+        },
+        {
+            "fleg_price": {
+                "1": 109.99
+            },
+            "fleg_unit_info": {
+                "u_amount": 1,
+                "u_size": 70,
+                "u_measure": "cl"
+            },
+            "category_detail": [
+                "spiritus",
+                "bitter"
+            ],
+            "border_price": {
+                "1": 139.95
+            },
+            "border_unit_info": {
+                "u_name": "flaske",
+                "u_amount": 1,
+                "u_size": 100,
+                "u_measure": "cl"
+            },
+            "name": "Fernet Branca Menta 28% 70 cl",
+            "dk_price": {
+                "1": 99
+            }
+        },
+        {
+            "fleg_price": null,
+            "fleg_unit_info": null,
+            "category_detail": [
+                "spiritus",
+                "shots"
+            ],
+            "border_price": {
+                "1": 29.95
+            },
+            "border_unit_info": {
+                "u_name": "flaske",
+                "u_amount": 1,
+                "u_size": 10,
+                "u_measure": "cl"
+            },
+            "name": "Fisk Pure Raw Lakrids 16.4% 70 cl",
+            "dk_price": {
+                "1": 119
+            }
+        },
+        {
+            "fleg_price": null,
+            "fleg_unit_info": null,
+            "category_detail": [
+                "spiritus",
+                "likor"
+            ],
+            "border_price": {
+                "1": 124.95
+            },
+            "border_unit_info": {
+                "u_name": "flaske",
+                "u_amount": 1,
+                "u_size": 70,
+                "u_measure": "cl"
+            },
+            "name": "Galliano Vanilla Liquore 30% 70 cl",
+            "dk_price": {
+                "1": 114.95
+            }
+        },
+        {
+            "fleg_price": {
+                "1": 99.99
+            },
+            "fleg_unit_info": {
+                "u_amount": 1,
+                "u_size": 70,
+                "u_measure": "cl"
+            },
+            "category_detail": null,
+            "border_price": null,
+            "border_unit_info": null,
+            "name": "Gammel Dansk Shot 32% 70 cl",
+            "dk_price": {
+                "1": 144
+            }
+        },
+        {
+            "fleg_price": {
+                "1": 159.99
+            },
+            "fleg_unit_info": {
+                "u_amount": 1,
+                "u_size": 70,
+                "u_measure": "cl"
+            },
+            "category_detail": null,
+            "border_price": null,
+            "border_unit_info": null,
+            "name": "Gautier VS Cognac 40% 70 cl",
+            "dk_price": {
+                "1": 169.95
+            }
+        },
+        {
+            "fleg_price": {
+                "1": 179.99
+            },
+            "fleg_unit_info": {
+                "u_amount": 1,
+                "u_size": 70,
+                "u_measure": "cl"
+            },
+            "category_detail": null,
+            "border_price": null,
+            "border_unit_info": null,
+            "name": "Gautier VSOP Cognac 40% 70 cl",
+            "dk_price": {
+                "1": 199.95
+            }
+        },
+        {
+            "fleg_price": null,
+            "fleg_unit_info": null,
+            "category_detail": [
+                "spiritus",
+                "vodka"
+            ],
+            "border_price": {
+                "1": 3199.95
+            },
+            "border_unit_info": {
+                "u_name": "flaske",
+                "u_amount": 1,
+                "u_size": 450,
+                "u_measure": "cl"
+            },
+            "name": "Grey Goose Vodka (Mathusalem) 40% 600 cl",
+            "dk_price": {
+                "1": 3395
+            }
+        },
+        {
+            "fleg_price": null,
+            "fleg_unit_info": null,
+            "category_detail": [
+                "spiritus",
+                "vodka"
+            ],
+            "border_price": {
+                "1": 299.95
+            },
+            "border_unit_info": {
+                "u_name": "flaske",
+                "u_amount": 1,
+                "u_size": 70,
+                "u_measure": "cl"
+            },
+            "name": "Grey Goose Vodka 70cl 40% 70 cl",
+            "dk_price": {
+                "1": 268
+            }
+        },
+        {
+            "fleg_price": null,
+            "fleg_unit_info": null,
+            "category_detail": [
+                "spiritus",
+                "absinth"
+            ],
+            "border_price": {
+                "1": 199.95
+            },
+            "border_unit_info": {
+                "u_name": "flaske",
+                "u_amount": 1,
+                "u_size": 50,
+                "u_measure": "cl"
+            },
+            "name": "Hapsburg Absinthe Classic 72.5% 50 cl",
+            "dk_price": {
+                "1": 259
+            }
+        },
+        {
+            "fleg_price": null,
+            "fleg_unit_info": null,
+            "category_detail": [
+                "spiritus",
+                "bitter"
+            ],
+            "border_price": {
+                "1": 299.95
+            },
+            "border_unit_info": {
+                "u_name": "flaske",
+                "u_amount": 1,
+                "u_size": 100,
+                "u_measure": "cl"
+            },
+            "name": "Hendrick's Gin 41.4% 70 cl",
+            "dk_price": {
+                "1": 245
+            }
+        },
+        {
+            "fleg_price": {
+                "1": 199.99
+            },
+            "fleg_unit_info": {
+                "u_amount": 1,
+                "u_size": 70,
+                "u_measure": "cl"
+            },
+            "category_detail": null,
+            "border_price": null,
+            "border_unit_info": null,
+            "name": "Herbie Gin Export 40% 70 cl",
+            "dk_price": {
+                "1": 229
+            }
+        },
+        {
+            "fleg_price": {
+                "1": 79.99
+            },
+            "fleg_unit_info": {
+                "u_amount": 1,
+                "u_size": 70,
+                "u_measure": "cl"
+            },
+            "category_detail": null,
+            "border_price": null,
+            "border_unit_info": null,
+            "name": "Jensen Bitter 38% 70 cl",
+            "dk_price": {
+                "1": 100.8
+            }
+        },
+        {
+            "fleg_price": null,
+            "fleg_unit_info": null,
+            "category_detail": [
+                "spiritus",
+                "bitter"
+            ],
+            "border_price": {
+                "1": 109.95
+            },
+            "border_unit_info": {
+                "u_name": "flaske",
+                "u_amount": 1,
+                "u_size": 70,
+                "u_measure": "cl"
+            },
+            "name": "Jägermeister Bitter 2cl. 9 flasker",
+            "dk_price": {
+                "1": 144
+            }
+        },
+        {
+            "fleg_price": null,
+            "fleg_unit_info": null,
+            "category_detail": [
+                "spiritus",
+                "bitter"
+            ],
+            "border_price": {
+                "1": 109.95
+            },
+            "border_unit_info": {
+                "u_name": "flaske",
+                "u_amount": 1,
+                "u_size": 70,
+                "u_measure": "cl"
+            },
+            "name": "Jägermeister Bitter 35% 70 cl",
+            "dk_price": {
+                "1": 100
+            }
+        },
+        {
+            "fleg_price": {
+                "1": 179.99
+            },
+            "fleg_unit_info": {
+                "u_amount": 1,
+                "u_size": 70,
+                "u_measure": "cl"
+            },
+            "category_detail": null,
+            "border_price": null,
+            "border_unit_info": null,
+            "name": "Malfy Gin Rosa 41% 70 cl",
+            "dk_price": {
+                "1": 198.27
+            }
+        },
+        {
+            "fleg_price": null,
+            "fleg_unit_info": null,
+            "category_detail": [
+                "spiritus",
+                "brandy-armagnac"
+            ],
+            "border_price": {
+                "1": 159.95
+            },
+            "border_unit_info": {
+                "u_name": "flaske",
+                "u_amount": 1,
+                "u_size": 100,
+                "u_measure": "cl"
+            },
+            "name": "Metaxa 5 Star",
+            "dk_price": {
+                "1": 100
+            }
+        },
+        {
+            "fleg_price": {
+                "1": 99.99
+            },
+            "fleg_unit_info": {
+                "u_amount": 1,
+                "u_size": 70,
+                "u_measure": "cl"
+            },
+            "category_detail": [
+                "spiritus",
+                "bitter"
+            ],
+            "border_price": {
+                "1": 19.95
+            },
+            "border_unit_info": {
+                "u_name": "flaske",
+                "u_amount": 1,
+                "u_size": 10,
+                "u_measure": "cl"
+            },
+            "name": "Nordsø Bitter 30% 70 cl",
+            "dk_price": {
+                "1": 117.95
+            }
+        },
+        {
+            "fleg_price": {
+                "1": 219.99
+            },
+            "fleg_unit_info": {
+                "u_amount": 1,
+                "u_size": 70,
+                "u_measure": "cl"
+            },
+            "category_detail": null,
+            "border_price": null,
+            "border_unit_info": null,
+            "name": "Old English Gin 44% 70 cl.",
+            "dk_price": {
+                "1": 280
+            }
+        },
+        {
+            "fleg_price": null,
+            "fleg_unit_info": null,
+            "category_detail": [
+                "spiritus",
+                "tequila"
+            ],
+            "border_price": {
+                "1": 179.95
+            },
+            "border_unit_info": {
+                "u_name": "flaske",
+                "u_amount": 1,
+                "u_size": 100,
+                "u_measure": "cl"
+            },
+            "name": "Olmeca Tequila Blanco 38% 70 cl",
+            "dk_price": {
+                "1": 174
+            }
+        },
+        {
+            "fleg_price": null,
+            "fleg_unit_info": null,
+            "category_detail": [
+                "spiritus",
+                "absinth"
+            ],
+            "border_price": {
+                "1": 139.95
+            },
+            "border_unit_info": {
+                "u_name": "flaske",
+                "u_amount": 1,
+                "u_size": 100,
+                "u_measure": "cl"
+            },
+            "name": "Ouzo 12 38% 70 cl",
+            "dk_price": {
+                "1": 99.95
+            }
+        },
+        {
+            "fleg_price": null,
+            "fleg_unit_info": null,
+            "category_detail": [
+                "spiritus",
+                "absinth"
+            ],
+            "border_price": {
+                "1": 329.95
+            },
+            "border_unit_info": {
+                "u_name": "flaske",
+                "u_amount": 1,
+                "u_size": 70,
+                "u_measure": "cl"
+            },
+            "name": "Pernod Absinthe 68% 70 cl",
+            "dk_price": {
+                "1": 184.95
+            }
+        },
+        {
+            "fleg_price": null,
+            "fleg_unit_info": null,
+            "category_detail": [
+                "spiritus",
+                "shots"
+            ],
+            "border_price": {
+                "1": 19.95
+            },
+            "border_unit_info": {
+                "u_name": "flaske",
+                "u_amount": 1,
+                "u_size": 10,
+                "u_measure": "cl"
+            },
+            "name": "Råstoff Ren Lakrids 16.4% 70 cl",
+            "dk_price": {
+                "1": 120
+            }
+        },
+        {
+            "fleg_price": null,
+            "fleg_unit_info": null,
+            "category_detail": [
+                "spiritus",
+                "bitter"
+            ],
+            "border_price": {
+                "1": 24.95
+            },
+            "border_unit_info": {
+                "u_name": "pakker",
+                "u_amount": "4",
+                "u_size": 2,
+                "u_measure": "cl"
+            },
+            "name": "Underberg Bitter 30x2 cl. 44%",
+            "dk_price": {
+                "1": 355
+            }
+        }
+    ]
+}
