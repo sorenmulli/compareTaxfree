@@ -12,8 +12,10 @@ class Merger:
 		self.raw_db = raw_db
 		self.clean_db = {}
 		self.categori_translation = {
-			'ol-spiritus-vand-cider': ['ol', 'spiritus', 'vand', 'cider', 'hedvin', 'ol-cider'],
+			'spiritus': ['spiritus', 'hedvin'],
 			'vin': ['vin', 'hedvin'],
+			'ol': ['ol', 'ol-cider'],
+			'cider': ['cider', 'ol_cider']
 		#	'ol-cider': ['ol', 'cider']
 		}
 		
@@ -44,7 +46,6 @@ class Merger:
 
 
 			if border is None:
-				category = fleg["category"]
 				clean_unit["category_detail"] = None
 
 				clean_unit["border_price"] = None
@@ -52,11 +53,11 @@ class Merger:
 
 			else:
 
-				category = border["category"]
 				clean_unit["category_detail"] = border["category_detail"] 
 
 				clean_unit["border_price"] = border["price"]
 				clean_unit["border_unit_info"] = border["unit_info"]
+			clean_unit["category"] = dk["category"]
 			clean_unit["name"] = dk["name"]
 			clean_unit["dk_price"] = dk["price"]
 			print("\nPRODUCT\n")
@@ -75,7 +76,7 @@ class Merger:
 		scores = np.empty(N)
 		for i, item in enumerate(db):
 			scores[i] = self.score(dk_item, item)
-		if scores.max() >= 50:
+		if scores.max() >= 45:
 			return db[scores.argmax()]
 		else: 
 			return None
