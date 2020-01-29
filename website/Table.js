@@ -1,6 +1,29 @@
-function SearchTable(){
+$(document).ready(function() {
+	var counter = 0;
+	$.ajax({
+		url: "ComparedPrices.json",
+		dataType: "json",
+		success: function(data){
+			$(data).each(function(index, items) {
+				buildHeader( items['catagory'][0] );
+				$(items['catagory'][1].items).each(function(indexx, item) {
+					var itemString = "<tr>";
+					console.log()
+					itemString += buildName( item );
+					itemString += buildBorderPrice( item );
+					itemString += buildDanishPrice( item );
+					itemString += buildCart( counter++ );
+					itemString += "</tr>";
+					$("#price_table").append(itemString);
+				})
+			});
+		}
+	});
+});
 
-	var input, filter, table, tr, td, i, txtValue;
+
+function SearchTable(){
+	var input, filter, table, tr, td, th, i, txtValue;
 	input = document.getElementById("search_input");
 	filter = input.value.toUpperCase().replace(" ", "");
 	table = document.getElementById("price_table");
@@ -19,81 +42,135 @@ function SearchTable(){
 	}
 }
 
-function AddItem(id){
-	var val = parseInt(document.getElementById(id).value);
-
-	if(val < 1 || val == null){
-		document.getElementById(id).value = 0;
-	} else {
-		document.getElementById(id).value = val + 1;
-	}
-}
-
 function CalculateTotal(){
-	var table = document.getElementById('price_table');
-	var counter = 0
-	var val;
+	var counter = 0;
+	var danPris = 0.0;
+	var bordPris = 0.0;
+	var numOfProds = 0;
+	$(document).ready(function() {
+		$.ajax({
+			url: "ComparedPrices.json",
+			dataType: "json",
+			success: function(data){
+				$(data).each(function(index, items) {
+					$(items['catagory'][1].items).each(function(indexx, item){
+						danPris += calcPrice(item.danishPrice, counter);
+						bordPris += calcPrice(item.borderPrice, counter);
+						numOfProds += parseInt(document.getElementById("item" + counter).value);
+						//console.log(document.getElementById("item" + counter));
+						counter++;
+						//console.log(item.borderPrice)
+					});
+				});
+				document.getElementById("danish_price").innerText = "Dansk Pris: " + danPris;
+				document.getElementById("border_price").innerText = "Border Pris: " + bordPris;
+			}
+		});
+	});
+}
 
-	var danishTotal = 0;
-	var borderTotal = 0;
-
+function findDist(){
+	var postCode = document.getElementById("post_code").value;
+	if(postCode.length != 4){
+		document.getElementById("dist_info").innerText = "Ikke et dansk postnummer";
+		return;
+	}
 	$.ajax({
-		url: "ComparedPrices.json",
+		url: "distances.json",
 		dataType: "json",
 		success: function(data){
-			$(data).each(function(index, value) {
-				$(value['catagory'][1].items).each(function(indexx, value) {
-					val = document.getElementById(counter++);
-					if(!isNaN(val) ) {
-						danishTotal += parseInt(val) * value;
-
-
-					}
-				});
-			});
+			$(data).each(function(index, postCodes){
+				var obj = postCodes[postCode];
+				if(typeof obj === 'undefined'){
+					document.getElementById("dist_info").innerText = "Postnummeret blev ikke fundet";
+					return;
+				}
+				$("#dist_table").append(updateDist(obj));
+			})
 		}
 	});
+}
 
-	console.log(danishTotal)
+function updateDist(obj){
+	var name = ["gedser", "rodby", "fleggaard_east", "fleggaard_west"];
+	var stringBuild = "";
+	stringBuild += "<tr>";
+	for(let i = 0; i < 4; i++){
+		//console.log(obj['distance'][i]);
+		stringBuild += "<td>"
+		stringBuild += "Location: " + name[i];
+		stringBuild += "\nDistance: " + obj['distance'][i];
+		stringBuild += "</td>"
+
+	}
+	stringBuild += "</tr>";
+	console.log(stringBuild);
+	return stringBuild;
 
 }
 
-//On load of website
-$(document).ready(function() {
-	$.ajax({
-		url: "ComparedPrices.json",
-		dataType: "json",
-		success: function(data){
-			$(data).each(function(index, items) {
-				//value['catagory'][1]
-				$(items['catagory'][1].items).each(function(indexx, value) {
-					var item =
-					"<tr><td>"
-					+value.name
-					+"</td><td>"
-					+value.borderPrice
-					+"</td><td>"
-					+value.danishPrice
-					+"</td><td>"
-					+"<button type=\"button\" id = \"_"
-					+ index
-					+"\" onclick=\" AddItem("
-					+ index
-					+ ")\"> Plus </button>"
-					+  "<input type=\"number\" id =\""
-					+ index
-					+"\" placeholder = \"0\">"
-					+"<button type=\"button\" id = \"_"
-					+ index
-					+"\"> Minus </button>"
-					+"<Button id = \"crt"
-					+ index
-					+ "\" > Add To Cart </Button>"
-					+"</td></tr>"
-					$("#price_table").append(item)
-				});
-			});
+function seeLocalStorage(){
+	console.log(localStorage.getItem("danPris"));
+	console.log(localStorage.getItem("bordPris"));
+}
 
-		}
-	});
-});
+function calcPrice(item, counter) {
+	let price = parseInt(item);
+	let num = parseInt(document.getElementById("item" + counter).value);
+	if(isNaN(price)) return 0
+	else return price*num;
+}
+
+
+
+function buildName( item ){
+	return buildTD().replace("!", item.name);
+}
+
+function buildBorderPrice( item ){
+	return buildTD().replace("!", item.borderPrice);
+}
+
+function buildDanishPrice( item ){
+	return buildTD().replace("!", item.danishPrice);
+}
+
+function buildCart( indexx ){
+	var buttonString = "";
+	buttonString += buildPlusButt( indexx );
+	buttonString += buildPriceField( indexx );
+	buttonString += buildMinusButt( indexx );
+	return buildTD().replace("!",buttonString);
+}
+
+function buildPlusButt(indexx){
+	return "<button id = \"+" + indexx +"\" onclick = \"plusFunction(\'item"+indexx+"\')\"  >+</button>";
+}
+
+function buildPriceField(indexx){
+	return "<input class = \"inputItem\" type = \"number\" id = \"item" + indexx + "\" value = \"0\">";
+}
+
+function buildMinusButt(indexx){
+	return "<button id = \"-" + indexx + "\" onclick = \"minusFunction(\'item"+indexx+"\') \">-</button>";
+}
+
+function buildTD(){
+	return "<td>!</td>";
+}
+
+function buildHeader(name){
+	var header =
+	"<th>"+
+	name.id+
+	"</th>"
+	$("#price_table").append(header)
+}
+
+function plusFunction(inputId){
+	document.getElementById(inputId).value++;
+}
+
+function minusFunction(inputId){
+	document.getElementById(inputId).value--;
+}
