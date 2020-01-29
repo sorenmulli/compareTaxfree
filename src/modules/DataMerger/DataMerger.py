@@ -5,6 +5,8 @@ import numpy as np
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'PyUtils'))
 from  pyutils import alphabetize
 
+from difflib import SequenceMatcher
+
 class Merger:
 	def __init__(self, raw_db: dict = None):
 		self.raw_db = raw_db
@@ -49,6 +51,7 @@ class Merger:
 				clean_unit["border_unit_info"] = None
 
 			else:
+
 				category = border["category"]
 				clean_unit["category_detail"] = border["category_detail"] 
 
@@ -56,7 +59,12 @@ class Merger:
 				clean_unit["border_unit_info"] = border["unit_info"]
 			clean_unit["name"] = dk["name"]
 			clean_unit["dk_price"] = dk["price"]
-
+			print("\nPRODUCT\n")
+			print(dk["name"])
+			
+			if border is not None: print(border["name"], SequenceMatcher(None, border["name"].lower(), dk["name"].lower()).ratio() ) 
+			if fleg is not None: print(fleg["name"], SequenceMatcher(None, fleg["name"].lower(), dk["name"].lower()).ratio() ) 
+			
 			if category not in self.clean_db.keys():
 				self.clean_db[category] = [clean_unit]
 			else:
@@ -81,8 +89,12 @@ class Merger:
 			score += 50
 		if alphabetize(item["name"]) in dk_item["name"]:
 			score += 50
-		dk_price, item_price = self.get_singleprice(dk_item), self.get_singleprice(item)
+		match = SequenceMatcher( None, item["name"].lower(), dk_item["name"].lower() ).ratio()
+		score += match * 25 
 		
+
+
+		dk_price, item_price = self.get_singleprice(dk_item), self.get_singleprice(item)
 		if item_price >= dk_price*0.5 and item_price <= dk_price*1.5:
 			score += 10 
 		
@@ -103,7 +115,12 @@ class Merger:
 if __name__ == "__main__":
 	m = Merger()
 	m.db_from_json_file('src/modules/raw_db.json') #assume pwd is repo
+	
+	print(len(m.raw_db["dk"]))
 	m.merge_dbs()
+	print(sum
+	(	[len(m.clean_db[cat]) for cat in m.clean_db.keys()] 	)
+	)
 	with open('src/clean_db.json', 'w+') as outfile:
 		json.dump(m.clean_db, outfile)
 
