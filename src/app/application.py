@@ -3,26 +3,28 @@ import product_loader
 
 app = Flask(__name__)
 
+db = product_loader.load_products()
+product_ids = list(db.keys())
+
+
+
 
 @app.route("/")
 def homepage():
-    products = product_loader.load_products()
-    length = len(products)
-    product_names = [x["catagory"][0]["id"] for x in products]
-    # products[0]["catagory"][0]["id"]
+    length = len(db)
 
     return render_template("index.html",
-                           products=products,
-                           len=length,
-                           product_ids=product_names)
+                           product_ids=product_ids)
 
 
 @app.route("/products", methods=["GET", "POST"])
 def product():
-    if request.method == "GET":
-        product_id = request.form
-        return render_template("category_page.html", product_id=product_id)
-
+    if request.method == "POST":
+        product_id = request.form["prodID"]
+        return render_template("category_page.html",
+                               product_id=product_id,
+                               products=db[product_id],
+                               product_ids=product_ids)
 
 
 if __name__ == "__main__":

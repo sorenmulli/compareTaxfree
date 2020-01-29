@@ -1,23 +1,42 @@
-<!DOCTYPE html>
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/mainpage.css') }}">
-  </head>
-  <body>
-    <div class="content">
-        <h1>Compare tax free</h1>
-        <div class="products">
-          {% for key, value in product_id.items() %}
-          <tr>
-            <th> key </th>
-            <th> value </th>
-          </tr>
+{% extends "index.html" %}
+{% block extrahead %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/categorycss.css') }}">
+{% endblock %}
+{% block content %}
+<div>
+<h1 class="product_id">{{product_id}}</h1>
 
-          {% endfor %}
-        </div>
+<div class="products">
+    {% for product in products %}
+    <div class="product" id = "{{product.name}}"">
+      <table>
+        <tr><th colspan"2">{{product.name}}</th></tr>
+        <tr>
+          <td>DK</td>
+          {% if product.dk_price["1"] %}
+          <td>{{product.dk_price["1"]}}</td>
+          {% else %}
+          <td>No info </td>
+          {% endif %}
+        </tr>
+        <tr>
+          <td>Bordershop</td>
+          {% if product.border_price["1"] %}
+          <td>{{product.border_price["1"]}}</td>
+          {% else %}
+          <td>No info </td>
+          {% endif %}
+        </tr>
+        <tr>
+          <td>Fleggaard</td>
+          {% if product.fleg_price["1"] %}
+          <td>{{product.fleg_price["1"]}}</td>
+          {% else %}
+          <td>No info </td>
+          {% endif %}
+        </tr>
+      </table>
     </div>
-  </body>
-</html>
+    {%endfor%}
+</div>
+{% endblock %}

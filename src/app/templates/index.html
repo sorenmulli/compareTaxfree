@@ -2,32 +2,77 @@
 <html lang="en" dir="ltr">
 <head>
   <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/mainpage.css') }}">
-
+  {% block extrahead%} {%endblock%}
   <meta charset="utf-8">
   <title></title>
 </head>
 <body>
   <div class="page">
     <div class="sidepanel">
-      <div class="topSidePanel">
+      <div class="fixedsidepanel">
+        <div class="topSidePanel">
 
-        <h3><a href="#">Home</a></h3>
-        <h3>Categories</h3>
-        {%for id in product_ids%}
-          {{id}}
-        {%endfor%}
-
-      </div>
-      <div class="bottomSidePanel">
-        <h3>
-          Settings
-        </h3>
+          <form action="/">
+            <input type="submit" value=Home>
+          </form>
+          <h3>Categories</h3>
+          {% for id in product_ids %}
+          <form action = "/products" method="POST">
+            <input type="text" name="prodID" value={{id}} class="hiddenForm">
+            <input type="submit" value={{id}}>
+          </form>
+          {% endfor %}
+        </div>
+        <div class="bottomSidePanel">
+          <form action="/">
+            <input type="submit" value=Settings>
+          </form>
+        </div>
       </div>
     </div>
+
     <div class="content">
+      {% block content %}
+        {% for item in best_value_products%}
 
+        <div class="product" id = "{{product.name}}">
+          <table>
+            <tr><th colspan"2">{{product.name}}</th></tr>
+            <tr>
+              <td>DK</td>
+              {% if product.dk_price["1"] %}
+              <td>{{product.dk_price["1"]}}</td>
+              {% else %}
+              <td>No info </td>
+              {% endif %}
+            </tr>
+            <tr>
+              <td>Bordershop</td>
+              {% if product.border_price["1"] %}
+              <td>{{product.border_price["1"]}}</td>
+              {% else %}
+              <td>No info </td>
+              {% endif %}
+            </tr>
+            <tr>
+              <td>Fleggaard</td>
+              {% if product.fleg_price["1"] %}
+              <td>{{product.fleg_price["1"]}}</td>
+              {% else %}
+              <td>No info </td>
+              {% endif %}
+            </tr>
+          </table>
+        </div>
+
+      {% endfor %}
+
+
+      {% endblock %}
     </div>
+
   </div>
+
 
 </body>
 </html>
