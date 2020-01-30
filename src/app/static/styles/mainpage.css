@@ -14,13 +14,79 @@ html, body {
   max-width: 200px;
 }
 
+.careffiencey {
+  display: flex;
+
+}
+
+.fuelType {
+  width: 200px;
+
+}
+
+.prkm {
+
+}
+
+.carinfo {
+
+}
+
+.prkmform {
+  width: 150px;
+  border-bottom: 1px solid black;
+}
+
+.prkmform input[type="text"]  {
+  border: none;
+  width: 40px;
+}
+
+
+.homeinfo {
+  height: 100px;
+
+}
 
 .content {
   width: 100%;
   overflow: auto;
-  border: 1px solid red;
+  margin-left: 10px;
 }
 
 .hiddenForm {
   display: none;
+}
+
+.productcontent {
+
+}
+
+.product_id {
+
+}
+
+.products {
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.product {
+  border: 1px solid black;
+  max-width: 300px;
+  min-width: 300px;
+  border-radius: 10px;
+  margin: 10px 10px;
+  user-select: none;
+}
+
+.product:hover {
+  background-color: #aaa;
+}
+
+.product:active {
+  background-color: white;
+
 }
