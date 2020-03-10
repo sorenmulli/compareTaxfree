@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/mainpage.css') }}">
+  <script type="text/javascript"
+  src="{{ url_for('static', filename='scripts/formating.js') }}"></script>
+  {% block extrahead%} {%endblock%}
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<body>
+  <div class="page">
+    <div class="sidepanel">
+      <div class="fixedsidepanel">
+        <div class="topSidePanel">
+
+          <form action="/">
+            <input type="submit" value=Home>
+          </form>
+          <h3>Categories</h3>
+          {% for id in product_ids %}
+          <form action = "/products" method="POST">
+            <input type="text" name="prodID" value={{id}} class="hiddenForm">
+            <input type="submit" value={{id}}>
+          </form>
+          {% endfor %}
+        </div>
+        <div class="bottomSidePanel">
+          <form action="/">
+            <input type="submit" value=Settings>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="content">
+
+      {% block content %}
+      <div class="carinfo">
+        <h1>Car info</h1>
+        <h2>Fuel economy</h2>
+        <div class="careffiencey">
+
+          <div class=fuelType>
+            <h3>Fuel type </h3>
+            <form>
+              <input type="radio" name="fueltype"> Diesel<br>
+              <input type="radio" name="fueltype"> Benzin<br>
+              <input type="radio" name="fueltype"> Electric<br>
+            </form>
+          </div>
+          <div class="prkm">
+            <h3>Kilometers pr liter </h3>
+            <div class="prkmform">
+              <form>
+                <input type="text" placeholder="xx,x">pr. kilometer
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="homeinfo">
+
+      </div>
+      <div class="productcontent">
+
+        <div class="product_id">
+          <h1>Best value</h1>
+        </div>
+        <div class="products">
+          {% for product in best_value%}
+          <div class="product" id = "{{product.name}}">
+            <table>
+              <tr><th colspan"2">{{product.name}}</th></tr>
+              <tr>
+                <td>DK</td>
+                {% if product.dk_price["1"] %}
+                <td>{{product.dk_price["1"]}}</td>
+                {% else %}
+                <td>No info </td>
+                {% endif %}
+              </tr>
+              <tr>
+                <td>Bordershop</td>
+                {% if product.border_price["1"] %}
+                <td>{{product.border_price["1"]}}</td>
+                {% else %}
+                <td>No info </td>
+                {% endif %}
+              </tr>
+              <tr>
+                <td>Fleggaard</td>
+                {% if product.fleg_price["1"] %}
+                <td>{{product.fleg_price["1"]}}</td>
+                {% else %}
+                <td>No info </td>
+                {% endif %}
+              </tr>
+            </table>
+          </div>
+
+          {% endfor %}
+        </div>
+      </div>
+
+      {% endblock %}
+    </div>
+  </div>
+
+
+
+
+</body>
+</html>
