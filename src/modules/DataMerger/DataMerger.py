@@ -66,10 +66,10 @@ class Merger:
 			if border is not None: print(border["name"], SequenceMatcher(None, border["name"].lower(), dk["name"].lower()).ratio() ) 
 			if fleg is not None: print(fleg["name"], SequenceMatcher(None, fleg["name"].lower(), dk["name"].lower()).ratio() ) 
 			
-			if category not in self.clean_db.keys():
-				self.clean_db[category] = [clean_unit]
+			if clean_unit["category"] not in self.clean_db.keys():
+				self.clean_db[clean_unit["category"]] = [clean_unit]
 			else:
-				self.clean_db[category].append(clean_unit)
+				self.clean_db[clean_unit["category"]].append(clean_unit)
 
 	def best_match(self, dk_item: dict, db: dict):		
 		N = len(db)
